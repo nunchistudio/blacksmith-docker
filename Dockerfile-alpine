@@ -1,0 +1,27 @@
+FROM golang:1.14.4-alpine
+
+# We need to install gcc (and its dependencies) in addition to unzip.
+# This is needed because the Go image for Alpine deletes it after installation
+# to keep the image as small as possible.
+RUN apk add --no-cache \
+  bash \
+  musl-dev \
+  gcc \
+  unzip
+
+# Enable Go modules.
+ENV GO111MODULE on
+
+# Set Blacksmith environment variables.
+ENV BLACKSMITH_ENV docker-alpine
+ENV BLACKSMITH_VERSION v0.10.2
+
+# Create the required directories.
+RUN mkdir -p /.blacksmith/plugins/${BLACKSMITH_VERSION} && \
+  mkdir -p /.blacksmith/scripts
+
+# Copy the script files to the container.
+COPY ./scripts /.blacksmith/scripts
+
+# Download the adapters using the script.
+RUN /.blacksmith/scripts/download-adapters.sh alpine ${BLACKSMITH_VERSION}
