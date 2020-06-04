@@ -20,8 +20,8 @@ application using Blacksmith.
 
 ## Versions
 
-- Blacksmith version: v0.10.2
-- Go version: v1.14.4
+- **Blacksmith version:** v0.10.2
+- **Go version:** v1.14.4
 
 ## License
 
