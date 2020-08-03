@@ -19,6 +19,7 @@ adapters=(
   pubsub-nats
   pubsub-rabbitmq
   store-postgres
+  supervisor-consul
   wanderer-postgres
 )
 
