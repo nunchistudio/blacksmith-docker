@@ -3,29 +3,59 @@
 This repository contains images for running Blacksmith on Docker.
 
 The purpose is to offer an environment inherited from the official Go images without
-any fluff. They download and unzip adapters as well as setting environment variables.
+any fluff. They download, unzip, and install the Blacksmith CLI.
+
+## Images
+
+Images follow the convention:
+`nunchistudio/blacksmith[-edition]:[version][-distribution]`.
+
+- `edition` is the Blacksmith edition and is one of `standard`, `enterprise.`
+  Defaults to `standard`.
+- `version` is the Blacksmith version.
+- `distribution` is one of `alpine`, `buster`. Defaults to `buster`.
 
 ## Usage
 
-Images follow the convention of the official Go images:
-`nunchistudio/blacksmith:<version>-<distribution>`.
+In a `Docker-compose.yml`:
+```yml
+version: "3"
 
-- `version` is the Blacksmith version.
-- `distribution` is one of `alpine`, `buster`, `stretch`. Defaults to `buster`.
+services:
+  blacksmith_gateway:
+    image: "nunchistudio/blacksmith-standard:0.10.2-alpine"
+    restart: "unless-stopped"
+    volumes:
+      - "./:/app"
+    working_dir: "/app"
+    entrypoint: "blacksmith start --service gateway"
+    environment:
+      NATS_SERVER_URL: ""
+      POSTGRES_STORE_URL: ""
+      POSTGRES_WANDERER_URL: ""
+    ports:
+      - "8080:8080"
 
-An example using `docker-compose` lives in the `smithy` repository, the demo
-application using Blacksmith.
-
-- [See example](https://github.com/nunchistudio/smithy)
+  blacksmith_scheduler:
+    image: "nunchistudio/blacksmith-standard:0.10.2-alpine"
+    restart: "unless-stopped"
+    volumes:
+      - "./:/app"
+    working_dir: "/app"
+    entrypoint: "blacksmith start --service scheduler"
+    environment:
+      NATS_SERVER_URL: ""
+      POSTGRES_STORE_URL: ""
+      POSTGRES_WANDERER_URL: ""
+    ports:
+      - "8081:8081"
+```
 
 ## Versions
 
 - **Blacksmith version:** v0.10.2
-- **Go version:** v1.14.4
+- **Go version:** v1.15.0
 
 ## License
 
 Repository licensed under the [Apache License, Version 2.0](./LICENSE).
-
-Each and every adapter attached to this repository as an asset is licensed under the
-[Blacksmith Adapter License](https://nunchi.studio/licenses/blacksmith-adapter).

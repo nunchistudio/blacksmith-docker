@@ -16,4 +16,3 @@ types:
 scopes:
   - "alpine"
   - "buster"
-  - "stretch"

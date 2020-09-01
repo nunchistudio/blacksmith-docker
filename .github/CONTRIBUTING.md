@@ -35,54 +35,6 @@ contribution guidelines as light but rock-solid as possible.
 - You agree to both the product license and the Developer Certificate of Origin
   as defined in Exhibit A.
 
-## Building and publishing the Docker images
-
-Here are snippets to help you build and publish the Docker images. Since the `buster`
-tag is the default one, we also need to tag it without any tag.
-
-Shortcuts to `build` and `push` are available in the `Makefile` of this repository.
-
-### For `alpine` distribution
-
-Build the image:
-```bash
-$ docker build -f ./Dockerfile-alpine \
-  -t nunchistudio/blacksmith:<version>-alpine .
-```
-
-Publish the image on the Docker Hub:
-```bash
-$ docker push nunchistudio/blacksmith:<version>-alpine
-```
-
-### For `buster` distribution
-
-Build the image:
-```bash
-$ docker build -f ./Dockerfile-buster \
-  -t nunchistudio/blacksmith:<version>-buster \
-  -t nunchistudio/blacksmith:<version> .
-```
-
-Publish the image on the Docker Hub:
-```bash
-$ docker push nunchistudio/blacksmith:<version>-buster
-$ docker push nunchistudio/blacksmith:<version>
-```
-
-### For `stretch` distribution
-
-Build the image:
-```bash
-$ docker build -f ./Dockerfile-stretch \
-  -t nunchistudio/blacksmith:<version>-stretch .
-```
-
-Publish the image on the Docker Hub:
-```bash
-$ docker push nunchistudio/blacksmith:<version>-stretch
-```
-
 ## Exhibit A - Developer Certificate of Origin
 
     By making a contribution to this project, I certify that:

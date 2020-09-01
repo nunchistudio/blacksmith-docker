@@ -4,35 +4,49 @@
 BLACKSMITH_VERSION := 0.10.2
 
 #
-# build is a shortcut to build all the tags of the Docker image.
+# build is a shortcut to build all the tags of the Docker images.
 #
 build:
 
-	# Building alpine...
-	docker build -f ./Dockerfile-alpine \
+	# Building Blacksmith Standard Edition for Alpine.
+	docker build --no-cache -f ./alpine/Dockerfile \
+		--build-arg BLACKSMITH_EDITION=standard \
+  	-t nunchistudio/blacksmith-standard:$(BLACKSMITH_VERSION)-alpine \
   	-t nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-alpine .
 
-	# Building buster...
-	docker build -f ./Dockerfile-buster \
-		-t nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-buster \
+	# Building Blacksmith Enterprise Edition for Alpine.
+	docker build --no-cache -f ./alpine/Dockerfile \
+		--build-arg BLACKSMITH_EDITION=enterprise \
+  	-t nunchistudio/blacksmith-enterprise:$(BLACKSMITH_VERSION)-alpine .
+
+	# Building Blacksmith Standard Edition for Buster.
+	docker build --no-cache -f ./buster/Dockerfile \
+		--build-arg BLACKSMITH_EDITION=standard \
+		-t nunchistudio/blacksmith-standard:$(BLACKSMITH_VERSION)-buster \
+		-t nunchistudio/blacksmith-standard:$(BLACKSMITH_VERSION) \
 		-t nunchistudio/blacksmith:$(BLACKSMITH_VERSION) .
 
-	# Building stretch...
-	docker build -f ./Dockerfile-stretch \
-  	-t nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-stretch .
+	# Building Blacksmith Enterprise Edition for Buster.
+	docker build --no-cache -f ./buster/Dockerfile \
+		--build-arg BLACKSMITH_EDITION=enterprise \
+		-t nunchistudio/blacksmith-enterprise:$(BLACKSMITH_VERSION)-buster \
+		-t nunchistudio/blacksmith-enterprise:$(BLACKSMITH_VERSION) .
 
 #
-# push is a shortcut to push all the tags of the Docker image on the Docker Hub.
+# push is a shortcut to push all the tags of the Docker images on the Docker Hub.
 # First, it makes sure to build the images so we work with the latest version.
 #
 push: build
 
-	# Pushing alpine...
+	# Pushing Alpine tags.
 	docker push nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-alpine
+	docker push nunchistudio/blacksmith-standard:$(BLACKSMITH_VERSION)-alpine
+	docker push nunchistudio/blacksmith-enterprise:$(BLACKSMITH_VERSION)-alpine
 
-	# Pushing buster...
-	docker push nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-buster
+	# Pushing Buster tags.
 	docker push nunchistudio/blacksmith:$(BLACKSMITH_VERSION)
-
-	# Pushing stretch...
-	docker push nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-stretch
+	docker push nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-buster
+	docker push nunchistudio/blacksmith-standard:$(BLACKSMITH_VERSION)-buster
+	docker push nunchistudio/blacksmith-standard:$(BLACKSMITH_VERSION)
+	docker push nunchistudio/blacksmith-enterprise:$(BLACKSMITH_VERSION)-buster
+	docker push nunchistudio/blacksmith-enterprise:$(BLACKSMITH_VERSION)
