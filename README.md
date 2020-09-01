@@ -23,7 +23,7 @@ version: "3"
 
 services:
   blacksmith_gateway:
-    image: "nunchistudio/blacksmith-standard:0.10.2-alpine"
+    image: "nunchistudio/blacksmith-standard:0.11.0-alpine"
     restart: "unless-stopped"
     volumes:
       - "./:/app"
@@ -37,7 +37,7 @@ services:
       - "8080:8080"
 
   blacksmith_scheduler:
-    image: "nunchistudio/blacksmith-standard:0.10.2-alpine"
+    image: "nunchistudio/blacksmith-standard:0.11.0-alpine"
     restart: "unless-stopped"
     volumes:
       - "./:/app"
@@ -53,7 +53,7 @@ services:
 
 ## Versions
 
-- **Blacksmith version:** v0.10.2
+- **Blacksmith version:** v0.11.0
 - **Go version:** v1.15.0
 
 ## License
