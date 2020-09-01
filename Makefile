@@ -24,6 +24,7 @@ build:
 		--build-arg BLACKSMITH_EDITION=standard \
 		-t nunchistudio/blacksmith-standard:$(BLACKSMITH_VERSION)-buster \
 		-t nunchistudio/blacksmith-standard:$(BLACKSMITH_VERSION) \
+		-t nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-buster \
 		-t nunchistudio/blacksmith:$(BLACKSMITH_VERSION) .
 
 	# Building Blacksmith Enterprise Edition for Buster.
