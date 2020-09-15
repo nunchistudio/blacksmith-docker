@@ -1,4 +1,4 @@
-FROM golang:1.15.0-alpine
+FROM golang:1.15.2-alpine
 
 # We need to install gcc (and its dependencies) in addition to unzip.
 # This is needed because the Go image for Alpine deletes it after installation
@@ -11,7 +11,7 @@ RUN apk add --no-cache \
 
 # Enable Go modules and set Blacksmith environment variable.
 ENV GO111MODULE=on
-ENV BLACKSMITH_VERSION=0.11.0
+ENV BLACKSMITH_VERSION=0.12.0
 
 # Set the default Blacksmith Edition if not set.
 ARG BLACKSMITH_EDITION=standard
