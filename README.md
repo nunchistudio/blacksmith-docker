@@ -23,7 +23,7 @@ version: "3"
 
 services:
   blacksmith_gateway:
-    image: "nunchistudio/blacksmith-standard:0.12.0-alpine"
+    image: "nunchistudio/blacksmith-standard:0.13.0-alpine"
     restart: "unless-stopped"
     volumes:
       - "./:/app"
@@ -34,10 +34,10 @@ services:
       POSTGRES_STORE_URL: ""
       POSTGRES_WANDERER_URL: ""
     ports:
-      - "8080:8080"
+      - "9090:9090"
 
   blacksmith_scheduler:
-    image: "nunchistudio/blacksmith-standard:0.12.0-alpine"
+    image: "nunchistudio/blacksmith-standard:0.13.0-alpine"
     restart: "unless-stopped"
     volumes:
       - "./:/app"
@@ -48,12 +48,12 @@ services:
       POSTGRES_STORE_URL: ""
       POSTGRES_WANDERER_URL: ""
     ports:
-      - "8081:8081"
+      - "9091:9091"
 ```
 
 ## Versions
 
-- **Blacksmith version:** v0.12.0
+- **Blacksmith version:** v0.13.0
 - **Go version:** v1.15.2
 
 ## License

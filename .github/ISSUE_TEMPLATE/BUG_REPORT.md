@@ -17,7 +17,7 @@ about: You are experiencing an issue with Blacksmith on Docker that is different
 
 ## Environment
 
-- **Image version:** v0.12.0
+- **Image version:** v0.13.0
 - **Involved distributions:**
   - alpine
 

@@ -1,7 +1,7 @@
 .PHONY: build push
 
 # Set the Blacksmith version.
-BLACKSMITH_VERSION := 0.12.0
+BLACKSMITH_VERSION := 0.13.0
 
 #
 # build is a shortcut to build all the tags of the Docker images.
@@ -11,8 +11,8 @@ build:
 	# Building Blacksmith Standard Edition for Alpine.
 	docker build --no-cache -f ./alpine/Dockerfile \
 		--build-arg BLACKSMITH_EDITION=standard \
-  	-t nunchistudio/blacksmith-standard:$(BLACKSMITH_VERSION)-alpine \
-  	-t nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-alpine .
+		-t nunchistudio/blacksmith-standard:$(BLACKSMITH_VERSION)-alpine \
+		-t nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-alpine .
 
 	# Building Blacksmith Enterprise Edition for Alpine.
 	docker build --no-cache -f ./alpine/Dockerfile \
@@ -35,9 +35,8 @@ build:
 
 #
 # push is a shortcut to push all the tags of the Docker images on the Docker Hub.
-# First, it makes sure to build the images so we work with the latest version.
 #
-push: build
+push:
 
 	# Pushing Alpine tags.
 	docker push nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-alpine

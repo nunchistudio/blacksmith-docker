@@ -11,7 +11,7 @@ RUN apk add --no-cache \
 
 # Enable Go modules and set Blacksmith environment variable.
 ENV GO111MODULE=on
-ENV BLACKSMITH_VERSION=0.12.0
+ENV BLACKSMITH_VERSION=0.13.0
 
 # Set the default Blacksmith Edition if not set.
 ARG BLACKSMITH_EDITION=standard
