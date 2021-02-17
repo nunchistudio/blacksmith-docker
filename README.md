@@ -23,7 +23,7 @@ version: "3"
 
 services:
   blacksmith_gateway:
-    image: "nunchistudio/blacksmith-standard:0.14.0-alpine"
+    image: "nunchistudio/blacksmith-standard:0.15.0-alpine"
     restart: "unless-stopped"
     volumes:
       - "./:/app"
@@ -37,7 +37,7 @@ services:
       - "9090:9090"
 
   blacksmith_scheduler:
-    image: "nunchistudio/blacksmith-standard:0.14.0-alpine"
+    image: "nunchistudio/blacksmith-standard:0.15.0-alpine"
     restart: "unless-stopped"
     volumes:
       - "./:/app"
@@ -53,9 +53,12 @@ services:
 
 ## Versions
 
-- **Blacksmith version:** v0.14.0
-- **Go version:** v1.15.5
+- **Blacksmith version:** v0.15.0
+- **Go version:** v1.16.0
 
 ## License
 
 Repository licensed under the [Apache License, Version 2.0](./LICENSE).
+
+By downloading, installing, and using Blacksmith, you agree to the
+[Blacksmith Terms and Conditions](https://nunchi.studio/legal/terms).

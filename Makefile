@@ -1,7 +1,7 @@
 .PHONY: build push
 
 # Set the Blacksmith version.
-BLACKSMITH_VERSION := 0.14.0
+BLACKSMITH_VERSION := 0.15.0
 
 #
 # build is a shortcut to build all the tags of the Docker images.
