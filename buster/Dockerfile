@@ -6,7 +6,7 @@ RUN apt-get update -y; \
 
 # Enable Go modules and set Blacksmith environment variable.
 ENV GO111MODULE=on
-ENV BLACKSMITH_VERSION=0.15.0
+ENV BLACKSMITH_VERSION=0.15.1
 
 # Set the default Blacksmith Edition if not set.
 ARG BLACKSMITH_EDITION=standard
