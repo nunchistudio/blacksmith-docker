@@ -1,5 +1,3 @@
-.PHONY: build push
-
 # Set the Blacksmith version.
 BLACKSMITH_VERSION := 0.16.0
 
@@ -34,9 +32,9 @@ build:
 		-t nunchistudio/blacksmith-enterprise:$(BLACKSMITH_VERSION) .
 
 #
-# push is a shortcut to push all the tags of the Docker images on the Docker Hub.
+# release is a shortcut to push all the tags of the Docker images on the Docker Hub.
 #
-push:
+release:
 
 	# Pushing Alpine tags.
 	docker push nunchistudio/blacksmith:$(BLACKSMITH_VERSION)-alpine
