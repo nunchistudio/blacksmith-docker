@@ -1,4 +1,4 @@
-FROM golang:1.16.2-buster
+FROM golang:1.16.4-buster
 
 # Update registry and install unzip.
 RUN apt-get update -y; \
@@ -6,7 +6,7 @@ RUN apt-get update -y; \
 
 # Enable Go modules and set Blacksmith environment variable.
 ENV GO111MODULE=on
-ENV BLACKSMITH_VERSION=0.16.0
+ENV BLACKSMITH_VERSION=0.17.0
 ENV BLACKSMITH_ENV=docker/alpine
 
 # Set the default Blacksmith Edition if not set.
@@ -14,7 +14,7 @@ ARG BLACKSMITH_EDITION=standard
 
 # Set the remote URL and the archive name to download.
 ARG REMOTE=https://github.com/nunchistudio/blacksmith-docker/releases/download/v${BLACKSMITH_VERSION}
-ARG ARCHIVE=blacksmith-${BLACKSMITH_EDITION}_v${BLACKSMITH_VERSION}_docker-buster.zip
+ARG ARCHIVE=blacksmith-cli-${BLACKSMITH_EDITION}_v${BLACKSMITH_VERSION}_docker-buster.zip
 
 # Download, unzip, and remove the archive.
 RUN wget -nv "${REMOTE}/${ARCHIVE}"; \
