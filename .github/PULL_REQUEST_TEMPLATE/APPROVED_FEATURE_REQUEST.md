@@ -9,11 +9,15 @@ about: For approved feature requests only
 
 ## Impacts
 
-*Please describe the impacts on the images.*
+<!--
+Please describe the impacts on the images.
+-->
 
 - **Involved distributions:**
-  - alpine
+  - `alpine`
 
 ## Changelog
 
-*Please describe the steps to update an application to use the new feature.*
+<!--
+Please describe the steps to update an application to use the new feature.
+-->

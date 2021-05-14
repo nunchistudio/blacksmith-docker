@@ -5,22 +5,30 @@ about: You are experiencing an issue with Blacksmith on Docker that is different
 
 ## Unexpected behavior
 
-*Please write a clear and concise description of what the bug is.*
+<!--
+Please write a clear and concise description of what the bug is.
+-->
 
 ## Steps to reproduce
 
-*Please indicate the steps needed to reproduce the previously described behavior.*
+<!--
+Please indicate the steps needed to reproduce the previously described behavior.
+-->
 
 ## Expected behavior
 
-*Please describe the behavior you were expected.*
+<!--
+Please describe the behavior you were expected.
+-->
 
 ## Environment
 
-- **Image version:** v0.13.0
+- **Image version:** v0.16.0
 - **Involved distributions:**
-  - alpine
+  - `alpine`
 
 ## Additional context
 
-*Do you have anything to add ?*
+<!--
+Do you have anything to add?
+-->
