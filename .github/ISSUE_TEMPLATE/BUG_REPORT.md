@@ -23,7 +23,7 @@ Please describe the behavior you were expected.
 
 ## Environment
 
-- **Image version:** v0.17.0
+- **Image version:** v0.17.1
 - **Involved distributions:**
   - `alpine`
 
